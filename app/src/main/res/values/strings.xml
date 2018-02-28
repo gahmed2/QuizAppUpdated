@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">Quiz</string>
+
+    <string name="EditTextName">Type Your Name</string>
+
+    <string name="Q1">1. Which layout can organize views positions relative to each other?</string>
+    <string name="Q1a">RelativeLayout</string>
+    <string name="Q1b">LinearLayout</string>
+    <string name="Q1c">ScrollView</string>
+
+    <string name="Q2">2. Where should you define Global Variables?</string>
+    <string name="Q2a">Inside the method</string>
+    <string name="Q2b">Outside the method</string>
+    <string name="Q2c">It doesn’t matter</string>
+
+    <string name="Q3">3. In the above code, What is the value of "Result"?</string>
+    <string name="Q3a">statement 1</string>
+    <string name="Q3b">statement 2</string>
+    <string name="Q3c">Both statements</string>
+    <string name="desc">Q3code</string>
+
+    <string name="Q4">4. Which method will be called when you open the app for the first time?</string>
+    <string name="Q4a">onCreate</string>
+    <string name="Q4b">onResume</string>
+    <string name="Q4c">onRestart</string>
+
+    <string name="Q5">5. Which layout view should you use to display an image?</string>
+    <string name="Q5E">Type Your Answer</string>
+
+    <string name="Q6">6. Which methods will be used to fix Activity LifeCycle? (Choose 2 answers)</string>
+    <string name="Q6a">onSaveInstanceState</string>
+    <string name="Q6b">onPause</string>
+    <string name="Q6c">onRestoreInstanceState</string>
+    <string name="Q6d">onRestart</string>
+
+    <string name="Score">score</string>
+    <string name="zero">0</string>
+
+    <string name="SubmitButton">submit</string>
+    <string name="ResetButton">reset</string>
+    <string name="ShareButton">share</string>
+
+    <!--Java Strings-->
+    <string name="messageName">Name:</string>
+    <string name="messageQ1">Q1:</string>
+    <string name="messageQ2">Q2:</string>
+    <string name="messageQ3">Q3:</string>
+    <string name="messageQ4">Q4:</string>
+    <string name="messageQ5">Q5:</string>
+    <string name="messageQ6">Q6:</string>
+    <string name="messageScore">Score:</string>
+
+    <string name="Failed">Unfortunately, You failed to pass this Quiz. Please try again!</string>
+    <string name="Success">Congratulations! You passed this Quiz</string>
+
+    <string name="messageBest">Best Wishes!</string>
+    <!---->
+
+</resources>

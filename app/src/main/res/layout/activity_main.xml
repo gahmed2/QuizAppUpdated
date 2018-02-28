@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Scroll"
+    tools:context="com.example.gehad.quizapp.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/LinearOne"
+        style="@style/LinearOne">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/LinearTwo"
+                style="@style/LinearOne">
+
+                <EditText
+                    android:id="@+id/Name"
+                    style="@style/EditTextStyle"
+                    android:hint="@string/EditTextName"
+                    android:inputType="textCapWords" />
+
+                <android.support.v7.widget.CardView
+                    style="@style/CardStyle"
+                    card_view:cardBackgroundColor="@color/BackgroundBlack"
+                    card_view:cardCornerRadius="4dp">
+
+                    <LinearLayout style="@style/LinearOne">
+
+                        <TextView
+                            style="@style/QAStyle"
+                            android:text="@string/Q1" />
+
+                        <RadioGroup
+                            android:id="@+id/Q1"
+                            style="@style/LinearOne">
+
+                            <RadioButton
+                                android:id="@+id/Q1a"
+                                style="@style/ButtonStyle"
+                                android:text="@string/Q1a" />
+
+                            <RadioButton
+                                android:id="@+id/Q1b"
+                                style="@style/ButtonStyle"
+                                android:text="@string/Q1b" />
+
+                            <RadioButton
+                                android:id="@+id/Q1c"
+                                style="@style/ButtonStyle"
+                                android:text="@string/Q1c" />
+
+                        </RadioGroup>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    style="@style/CardStyle"
+                    card_view:cardBackgroundColor="@color/BackgroundBlack"
+                    card_view:cardCornerRadius="4dp">
+
+                    <LinearLayout style="@style/LinearOne">
+
+                        <TextView
+                            style="@style/QAStyle"
+                            android:text="@string/Q2" />
+
+                        <RadioGroup
+                            android:id="@+id/Q2"
+                            style="@style/LinearOne">
+
+                            <RadioButton
+                                android:id="@+id/Q2a"
+                                style="@style/ButtonStyle"
+                                android:text="@string/Q2a" />
+
+                            <RadioButton
+                                android:id="@+id/Q2b"
+                                style="@style/ButtonStyle"
+                                android:text="@string/Q2b" />
+
+                            <RadioButton
+                                android:id="@+id/Q2c"
+                                style="@style/ButtonStyle"
+                                android:text="@string/Q2c" />
+
+                        </RadioGroup>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    style="@style/CardStyle"
+                    card_view:cardBackgroundColor="@color/BackgroundBlack"
+                    card_view:cardCornerRadius="4dp">
+
+                    <LinearLayout style="@style/LinearOne">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/marginTop"
+                            android:src="@drawable/q3"
+                            android:contentDescription="@string/desc"/>
+
+                        <TextView
+                            style="@style/QAStyle"
+                            android:text="@string/Q3" />
+
+                        <RadioGroup
+                            android:id="@+id/Q3"
+                            style="@style/LinearOne">
+
+                            <RadioButton
+                                android:id="@+id/Q3a"
+                                style="@style/ButtonStyle"
+                                android:text="@string/Q3a" />
+
+                            <RadioButton
+                                android:id="@+id/Q3b"
+                                style="@style/ButtonStyle"
+                                android:text="@string/Q3b" />
+
+                            <RadioButton
+                                android:id="@+id/Q3c"
+                                style="@style/ButtonStyle"
+                                android:text="@string/Q3c" />
+
+                        </RadioGroup>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    style="@style/CardStyle"
+                    card_view:cardBackgroundColor="@color/BackgroundBlack"
+                    card_view:cardCornerRadius="4dp">
+
+                    <LinearLayout style="@style/LinearOne">
+
+                        <TextView
+                            style="@style/QAStyle"
+                            android:text="@string/Q4" />
+
+                        <RadioGroup
+                            android:id="@+id/Q4"
+                            style="@style/LinearOne">
+
+                            <RadioButton
+                                android:id="@+id/Q4a"
+                                style="@style/ButtonStyle"
+                                android:text="@string/Q4a" />
+
+                            <RadioButton
+                                android:id="@+id/Q4b"
+                                style="@style/ButtonStyle"
+                                android:text="@string/Q4b" />
+
+                            <RadioButton
+                                android:id="@+id/Q4c"
+                                style="@style/ButtonStyle"
+                                android:text="@string/Q4c" />
+
+                        </RadioGroup>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    style="@style/CardStyle"
+                    card_view:cardBackgroundColor="@color/BackgroundBlack"
+                    card_view:cardCornerRadius="4dp">
+
+                    <LinearLayout style="@style/LinearOne">
+
+                        <TextView
+                            style="@style/QAStyle"
+                            android:text="@string/Q5" />
+
+                        <EditText
+                            android:id="@+id/Q5"
+                            style="@style/EditTextStyle"
+                            android:hint="@string/Q5E"
+                            android:inputType="textCapWords" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    style="@style/CardStyle"
+                    card_view:cardBackgroundColor="@color/BackgroundBlack"
+                    card_view:cardCornerRadius="4dp">
+
+                    <LinearLayout style="@style/LinearOne">
+
+                        <TextView
+                            style="@style/QAStyle"
+                            android:text="@string/Q6" />
+
+                        <CheckBox
+                            android:id="@+id/Q6a"
+                            style="@style/ButtonStyle"
+                            android:text="@string/Q6a" />
+
+                        <CheckBox
+                            android:id="@+id/Q6b"
+                            style="@style/ButtonStyle"
+                            android:text="@string/Q6b" />
+
+                        <CheckBox
+                            android:id="@+id/Q6c"
+                            style="@style/ButtonStyle"
+                            android:text="@string/Q6c" />
+
+                        <CheckBox
+                            android:id="@+id/Q6d"
+                            style="@style/ButtonStyle"
+                            android:text="@string/Q6d" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearThree"
+                style="@style/LinearThree">
+
+                <TextView
+                    style="@style/ScoreText"
+                    android:text="@string/Score"
+                    android:textSize="@dimen/ScoreTextSize" />
+
+                <TextView
+                    android:id="@+id/Score"
+                    style="@style/ScoreText"
+                    android:text="@string/zero"
+                    android:textSize="@dimen/ResultTextSize" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearButtons"
+                style="@style/LinearButton"
+                android:layout_below="@id/LinearThree">
+
+                <Button
+                    android:id="@+id/submitResult"
+                    style="@style/PushButton"
+                    android:text="@string/SubmitButton"
+                    android:onClick="SubmitResults"/>
+
+                <Button
+                    android:id="@+id/shareResult"
+                    style="@style/PushButton"
+                    android:text="@string/ShareButton"
+                    android:onClick="ShareResults"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/LinearButton"
+                android:layout_below="@id/LinearButtons"
+                android:layout_margin="16dp">
+
+                <View style="@style/View0" />
+
+                <Button
+                    android:id="@+id/resetResult"
+                    style="@style/ResetPushButton"
+                    android:text="@string/ResetButton"
+                    android:onClick="ResetResults"/>
+
+                <View style="@style/View0" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

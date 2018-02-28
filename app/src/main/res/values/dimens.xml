@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="marginLeft">16dp</dimen>
+    <dimen name="marginRight">16dp</dimen>
+    <dimen name="marginBottom">8dp</dimen>
+    <dimen name="marginTop">8dp</dimen>
+    <dimen name="marginAll">16dp</dimen>
+
+    <dimen name="QAtextSize">20sp</dimen>
+    <dimen name="ButtonTextSize">18sp</dimen> <!--for answers-->
+    <dimen name="PushButtonTextSize">20sp</dimen> <!--for Push Buttons-->
+
+    <dimen name="ScoreTextSize">22sp</dimen> <!--for "Score-->
+    <dimen name="ResultTextSize">40sp</dimen> <!--for "0"-->
+
+</resources>
