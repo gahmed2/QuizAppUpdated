@@ -8,3 +8,4 @@ Ihis project is a continuation on the third project form Google Udacity Android 
 - Making Toast to tell the user whether he/she passed the quiz or not.
 - Adding integers.xml to call integer values from it in java code.
 - Updating Intent message when hitting Share button.
+- Resizing Background Image to load on devices that have limited resources.
