@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     private int NoOfQuestions;
 
     private String ResMessage;
+    Button submitButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         finalScoreView = findViewById(R.id.Score);
 
         NoOfQuestions = getResources().getInteger(R.integer.NoOfQuestions);
+        submitButton = findViewById(R.id.submitResult);
     }
 
     @Override
@@ -110,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void SubmitResults(View view) {
 
-        name = nameField.getText().toString();
+        name = nameField.getText().toString().trim();
 
         if (Q1a.isChecked()) finalScore++;
 
@@ -120,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (Q4a.isChecked()) finalScore++;
 
-        Q5Text = Q5Field.getText().toString();
+        Q5Text = Q5Field.getText().toString().trim();
 
         if (Q5Text.equals("ImageView") || Q5Text.equals("Image View")) {
             finalScore++;
@@ -133,11 +136,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(finalScore >= NoOfQuestions / 2.0){
-            ResMessage = getResources().getString(R.string.Success);
+            ResMessage = getResources().getString(R.string.messageScore) + " " + finalScore + "\n" +
+                    getResources().getString(R.string.Success);
             finalScoreView.setTextColor(this.getResources().getColor(R.color.GreenSuccess));
         }
         else{
-            ResMessage = getResources().getString(R.string.Failed);
+            ResMessage = getResources().getString(R.string.messageScore) + " " + finalScore + "\n" +
+                    getResources().getString(R.string.Failed);
             finalScoreView.setTextColor(this.getResources().getColor(R.color.RedFailure));
         }
 
@@ -146,6 +151,9 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(MainActivity.this,ResMessage,Toast.LENGTH_LONG).show();
 
         scoreMessage();
+
+        submitButton.setEnabled(false);
+        submitButton.setTextColor(getResources().getColor(R.color.DisabledGray));
     }
 
     public void ResetResults(View view) {
@@ -180,7 +188,11 @@ public class MainActivity extends AppCompatActivity {
         message = "";
 
         ResMessage = "";
+
         finalScoreView.setTextColor(this.getResources().getColor(R.color.TextWhite));
+
+        submitButton.setEnabled(true);
+        submitButton.setTextColor(getResources().getColor(R.color.TextWhite));
     }
 
     public void ShareResults(View view) {
@@ -209,7 +221,6 @@ public class MainActivity extends AppCompatActivity {
         message += "\n" + getResources().getString(R.string.messageQ4) + " " + Q4a.isChecked();
         message += "\n" + getResources().getString(R.string.messageQ5) + " " + Q5Result;
         message += "\n" + getResources().getString(R.string.messageQ6) + " " + Q6Result;
-        message += "\n" + getResources().getString(R.string.messageScore) + " " + finalScore;
         message += "\n" + "\n" + ResMessage + "\n";
         message += "\n" + getResources().getString(R.string.messageBest);
     }

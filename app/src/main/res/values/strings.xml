@@ -48,7 +48,7 @@
     <string name="messageQ4">Q4:</string>
     <string name="messageQ5">Q5:</string>
     <string name="messageQ6">Q6:</string>
-    <string name="messageScore">Score:</string>
+    <string name="messageScore">Your Score is:</string>
 
     <string name="Failed">Unfortunately, You failed to pass this Quiz. Please try again!</string>
     <string name="Success">Congratulations! You passed this Quiz</string>
