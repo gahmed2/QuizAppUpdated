@@ -20,43 +20,31 @@ public class MainActivity extends AppCompatActivity {
 
     static final String STATE_Name = "Score";
     static final String STATE_Color = "ScoreColor";
-
-    private EditText nameField;
     String name;
-
-    private RadioGroup Q1;
-    private RadioButton Q1a;
-
-    private RadioGroup Q2;
-    private RadioButton Q2b;
-
-    private RadioGroup Q3;
-    private RadioButton Q3a;
-
-    private RadioGroup Q4;
-    private RadioButton Q4a;
-
-    private EditText Q5Field;
-    String Q5Text;
-
-    private CheckBox Q6a;
-    private CheckBox Q6b;
-    private CheckBox Q6c;
-    private CheckBox Q6d;
-
-    private TextView finalScoreView;
-
-    int finalScore = 0;
-
+    String questionFiveText;            //Q5Text
+    int finalScore;                     //default value of global integer is zero, so we don't need to initialize it.
     String message;
-
-    private boolean Q5Result = FALSE;
-    private boolean Q6Result = FALSE;
-
-    private int NoOfQuestions;
-
-    private String ResMessage;
     Button submitButton;
+    private EditText nameField;
+    private RadioGroup questionOne;     //Q1
+    private RadioButton questionOneA;   //Q1a
+    private RadioGroup questionTwo;     //Q2
+    private RadioButton questionTwoB;   //Q2b
+    private RadioGroup questionThree;   //Q3
+    private RadioButton questionThreeA; //Q3a
+    private RadioGroup questionFour;    //Q4
+    private RadioButton questionFourA;  //Q4a
+    private EditText questionFiveField; //Q5Field
+    private CheckBox questionSixA;      //Q6a
+    private CheckBox questionSixB;      //Q6b
+    private CheckBox questionSixC;      // Q6c
+    private CheckBox questionSixD;      // Q6d
+    private TextView finalScoreView;
+    //default value of global boolean is false, so we don't need to initialize it.
+    private boolean questionFiveResult; //Q5Result
+    private boolean questionSixResult;  // Q6Result
+    private int noOfQuestions;          //NoOfQuestions
+    private String resultMessage;       //ResMessage
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,28 +53,28 @@ public class MainActivity extends AppCompatActivity {
 
         nameField = findViewById(R.id.Name);
 
-        Q1 = findViewById(R.id.Q1);
-        Q1a = findViewById(R.id.Q1a);
+        questionOne = findViewById(R.id.Q1);
+        questionOneA = findViewById(R.id.Q1a);
 
-        Q2 = findViewById(R.id.Q2);
-        Q2b = findViewById(R.id.Q2b);
+        questionTwo = findViewById(R.id.Q2);
+        questionTwoB = findViewById(R.id.Q2b);
 
-        Q3 = findViewById(R.id.Q3);
-        Q3a = findViewById(R.id.Q3a);
+        questionThree = findViewById(R.id.Q3);
+        questionThreeA = findViewById(R.id.Q3a);
 
-        Q4 = findViewById(R.id.Q4);
-        Q4a = findViewById(R.id.Q4a);
+        questionFour = findViewById(R.id.Q4);
+        questionFourA = findViewById(R.id.Q4a);
 
-        Q5Field = findViewById(R.id.Q5);
+        questionFiveField = findViewById(R.id.Q5);
 
-        Q6a = findViewById(R.id.Q6a);
-        Q6b = findViewById(R.id.Q6b);
-        Q6c = findViewById(R.id.Q6c);
-        Q6d = findViewById(R.id.Q6d);
+        questionSixA = findViewById(R.id.Q6a);
+        questionSixB = findViewById(R.id.Q6b);
+        questionSixC = findViewById(R.id.Q6c);
+        questionSixD = findViewById(R.id.Q6d);
 
         finalScoreView = findViewById(R.id.Score);
 
-        NoOfQuestions = getResources().getInteger(R.integer.NoOfQuestions);
+        noOfQuestions = getResources().getInteger(R.integer.NoOfQuestions);
         submitButton = findViewById(R.id.submitResult);
     }
 
@@ -115,40 +103,40 @@ public class MainActivity extends AppCompatActivity {
 
         name = nameField.getText().toString().trim();
 
-        if (Q1a.isChecked()) finalScore++;
+        if (questionOneA.isChecked()) finalScore++;
 
-        if (Q2b.isChecked()) finalScore++;
+        if (questionTwoB.isChecked()) finalScore++;
 
-        if (Q3a.isChecked()) finalScore++;
+        if (questionThreeA.isChecked()) finalScore++;
 
-        if (Q4a.isChecked()) finalScore++;
+        if (questionFourA.isChecked()) finalScore++;
 
-        Q5Text = Q5Field.getText().toString().trim();
+        questionFiveText = questionFiveField.getText().toString().trim();
 
-        if (Q5Text.equals("ImageView") || Q5Text.equals("Image View")) {
+        if (questionFiveText.equals("ImageView") || questionFiveText.equals("Image View")) {
             finalScore++;
-            Q5Result = TRUE;
+            questionFiveResult = TRUE;
         }
 
-        if ((Q6a.isChecked() && Q6c.isChecked()) && !(Q6b.isChecked() || Q6d.isChecked())) {
+        if ((questionSixA.isChecked() && questionSixC.isChecked()) &&
+                !(questionSixB.isChecked() || questionSixD.isChecked())) {
             finalScore++;
-            Q6Result = TRUE;
+            questionSixResult = TRUE;
         }
 
-        if(finalScore >= NoOfQuestions / 2.0){
-            ResMessage = getResources().getString(R.string.messageScore) + " " + finalScore + "\n" +
+        if (finalScore >= noOfQuestions / 2.0) {
+            resultMessage = getResources().getString(R.string.messageScore) + " " + finalScore + "\n" +
                     getResources().getString(R.string.Success);
             finalScoreView.setTextColor(this.getResources().getColor(R.color.GreenSuccess));
-        }
-        else{
-            ResMessage = getResources().getString(R.string.messageScore) + " " + finalScore + "\n" +
+        } else {
+            resultMessage = getResources().getString(R.string.messageScore) + " " + finalScore + "\n" +
                     getResources().getString(R.string.Failed);
             finalScoreView.setTextColor(this.getResources().getColor(R.color.RedFailure));
         }
 
         displayScore();
 
-        Toast.makeText(MainActivity.this,ResMessage,Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.this, resultMessage, Toast.LENGTH_LONG).show();
 
         scoreMessage();
 
@@ -163,31 +151,31 @@ public class MainActivity extends AppCompatActivity {
         finalScore = 0;
         displayScore();
 
-        Q1.clearCheck();
-        Q1a.setChecked(false);
+        questionOne.clearCheck();
+        questionOneA.setChecked(false);
 
-        Q2.clearCheck();
-        Q2b.setChecked(false);
+        questionTwo.clearCheck();
+        questionTwoB.setChecked(false);
 
-        Q3.clearCheck();
-        Q3a.setChecked(false);
+        questionThree.clearCheck();
+        questionThreeA.setChecked(false);
 
-        Q4.clearCheck();
-        Q4a.setChecked(false);
+        questionFour.clearCheck();
+        questionFourA.setChecked(false);
 
-        Q5Field.getText().clear();
-        Q5Text = "";
-        Q5Result = FALSE;
+        questionFiveField.getText().clear();
+        questionFiveText = "";
+        questionFiveResult = FALSE;
 
-        Q6a.setChecked(false);
-        Q6b.setChecked(false);
-        Q6c.setChecked(false);
-        Q6d.setChecked(false);
-        Q6Result = FALSE;
+        questionSixA.setChecked(false);
+        questionSixB.setChecked(false);
+        questionSixC.setChecked(false);
+        questionSixD.setChecked(false);
+        questionSixResult = FALSE;
 
         message = "";
 
-        ResMessage = "";
+        resultMessage = "";
 
         finalScoreView.setTextColor(this.getResources().getColor(R.color.TextWhite));
 
@@ -205,7 +193,6 @@ public class MainActivity extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
-
     }
 
     public void displayScore() {
@@ -213,15 +200,16 @@ public class MainActivity extends AppCompatActivity {
         finalScoreView.setText(String.valueOf(finalScore));
     }
 
+    //Email Message
     public void scoreMessage() {
         message = getResources().getString(R.string.messageName) + " " + name;
-        message += "\n" + getResources().getString(R.string.messageQ1) + " " + Q1a.isChecked();
-        message += "\n" + getResources().getString(R.string.messageQ2) + " " + Q2b.isChecked();
-        message += "\n" + getResources().getString(R.string.messageQ3) + " " + Q3a.isChecked();
-        message += "\n" + getResources().getString(R.string.messageQ4) + " " + Q4a.isChecked();
-        message += "\n" + getResources().getString(R.string.messageQ5) + " " + Q5Result;
-        message += "\n" + getResources().getString(R.string.messageQ6) + " " + Q6Result;
-        message += "\n" + "\n" + ResMessage + "\n";
+        message += "\n" + getResources().getString(R.string.messageQ1) + " " + questionOneA.isChecked();
+        message += "\n" + getResources().getString(R.string.messageQ2) + " " + questionTwoB.isChecked();
+        message += "\n" + getResources().getString(R.string.messageQ3) + " " + questionThreeA.isChecked();
+        message += "\n" + getResources().getString(R.string.messageQ4) + " " + questionFourA.isChecked();
+        message += "\n" + getResources().getString(R.string.messageQ5) + " " + questionFiveResult;
+        message += "\n" + getResources().getString(R.string.messageQ6) + " " + questionSixResult;
+        message += "\n" + "\n" + resultMessage + "\n";
         message += "\n" + getResources().getString(R.string.messageBest);
     }
 }
