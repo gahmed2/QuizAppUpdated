@@ -12,3 +12,4 @@ Ihis project is a continuation on the third project form Google Udacity Android 
 - Trim strings taken from EditText fields.
 - Making Submit button disabled and colored gray, once the user hits it to force him/her to Reset the Quiz for another submission.
 - Adding in AndroidManifest.xml "android:configChanges" attribute to fix activity lifecycle instead of using "onSave" and "onRestore".
+- Renaming all variables in Java to match lowerCamelCase rule.
