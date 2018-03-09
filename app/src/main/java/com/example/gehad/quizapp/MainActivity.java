@@ -1,15 +1,19 @@
 package com.example.gehad.quizapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,33 +22,46 @@ import static java.lang.Boolean.TRUE;
 
 public class MainActivity extends AppCompatActivity {
 
-    static final String STATE_Name = "Score";
-    static final String STATE_Color = "ScoreColor";
+    static final String STATE_NAME = "Score";
+    static final String STATE_COLOR = "ScoreColor";
+
     String name;
     String questionFiveText;            //Q5Text
     int finalScore;                     //default value of global integer is zero, so we don't need to initialize it.
     String message;
     Button submitButton;
+
     private EditText nameField;
+
     private RadioGroup questionOne;     //Q1
     private RadioButton questionOneA;   //Q1a
+
     private RadioGroup questionTwo;     //Q2
     private RadioButton questionTwoB;   //Q2b
+
     private RadioGroup questionThree;   //Q3
     private RadioButton questionThreeA; //Q3a
+
     private RadioGroup questionFour;    //Q4
     private RadioButton questionFourA;  //Q4a
+
     private EditText questionFiveField; //Q5Field
+
     private CheckBox questionSixA;      //Q6a
     private CheckBox questionSixB;      //Q6b
     private CheckBox questionSixC;      // Q6c
     private CheckBox questionSixD;      // Q6d
+
     private TextView finalScoreView;
+
     //default value of global boolean is false, so we don't need to initialize it.
     private boolean questionFiveResult; //Q5Result
     private boolean questionSixResult;  // Q6Result
+
     private int noOfQuestions;          //NoOfQuestions
     private String resultMessage;       //ResMessage
+
+    private ScrollView rootLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,13 +93,36 @@ public class MainActivity extends AppCompatActivity {
 
         noOfQuestions = getResources().getInteger(R.integer.NoOfQuestions);
         submitButton = findViewById(R.id.submitResult);
+
+        rootLayout = findViewById(R.id.rootLayout);
+
+        rootLayout.setOnTouchListener(new View.OnTouchListener()
+        {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent)
+            {
+                hideKeyboard(view);
+                return false;
+            }
+        });
+    }
+
+    /**
+     * Hides virtual keyboard
+     *
+     * @author kvarela
+     */
+    protected void hideKeyboard(View view)
+    {
+        InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        in.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         // Save the user's current score state
-        savedInstanceState.putInt(STATE_Name, finalScore);
-        savedInstanceState.putInt(STATE_Color, finalScoreView.getCurrentTextColor());
+        savedInstanceState.putInt(STATE_NAME, finalScore);
+        savedInstanceState.putInt(STATE_COLOR, finalScoreView.getCurrentTextColor());
 
         // Always call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(savedInstanceState);
@@ -93,8 +133,8 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
 
         // Restore state members from saved instance
-        finalScore = savedInstanceState.getInt(STATE_Name);
-        finalScoreView.setTextColor(savedInstanceState.getInt(STATE_Color));
+        finalScore = savedInstanceState.getInt(STATE_NAME);
+        finalScoreView.setTextColor(savedInstanceState.getInt(STATE_COLOR));
 
         displayScore();
     }
